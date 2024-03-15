@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="insertData()">ADD ROW</button>
+    <table id="myTbl">
+        <thead>
+            <tr>
+                <th>SR</th>
+                <th>Name</th>
+                <th>Course</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+        
+       
+
+       
+
+    </table>
+    <script>
+        var myArr =
+            [
+                {
+                    Sr: 01,
+                    Name: "Amit Kumar",
+                    Course: "B.tech",
+                }
+            ];
+
+        function insertData() {
+            myArr.push({
+                    Sr: 01,
+                    Name: "Amit Kumar",
+                    Course: "B.tech",
+                });
+            let table = document.getElementById("myTbl");
+            let rows = table.querySelectorAll('tr');
+            console.log(rows)
+
+            for (let i = 1; i < rows.length; i++) {
+                rows[i].children[0].textContent = myArr[i - 1].Sr
+                rows[i].children[1].textContent = myArr[i - 1].Name
+                rows[i].children[2].textContent = myArr[i - 1].Course
+            }
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

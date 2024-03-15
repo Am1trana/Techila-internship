@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+
+<body>
+    <div class="main"> Given Array: [1, 7, 5, 8, 5, 9, [15, 42, 74, 10, 23], 2, 0] </div>
+    <div id="array"> </div>
+    <button id="merge" onclick="a()"> Click ME</button>
+
+
+    <script>
+
+        let arr = [1, 7, 5, 8, 5, 9, [15, 42, 74, 10, 23], 2, 0];
+
+        let finalarr = [];
+
+        for (let i = 0; i < arr.length; i++) 
+        {
+            let typeOfCurrentElement = typeof arr[i];
+
+            if (typeOfCurrentElement === "object") 
+            {
+                subArray = arr[i];
+                subArray.forEach((element) =>
+                 {
+                    let currentValue = element;
+                    finalarr.push(currentValue);
+
+                });
+
+            }
+            else if (typeOfCurrentElement === "number") 
+            {
+                let currentMainValue = arr[i];
+                finalarr.push(currentMainValue);
+            }
+        }
+        console.log(finalarr)
+
+        function a(){
+            document.getElementById("array").innerHTML= finalarr
+        }
+
+
+    </script>
+
+</body>
+
+</html>

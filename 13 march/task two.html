@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airthmetic operators</title>
+    <style>
+        .main {
+            display: flex;
+            gap: 20px;
+
+        }
+
+        #showDataDisplay{
+
+            border: 0.3px solid black;
+            height: 20px;
+            width: 81px;
+        }
+
+        .row {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div>
+            <label for="fnum"> Enter First Number:</label>
+            <input type="number" name="fnum" id="fnum" onchange="resultClickbutton()" placeholder="Enter First Number...">
+        </div>
+
+
+        <div>
+            <label for="op">Operation</label>
+            <select name="op" id="operationId">
+                <option value="">Select Operation</option>
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+        </div>
+
+
+        <div>
+            <label for="snum"> Enter Second Number:</label>
+            <input type="number" name="snum" id="snum" onchange="resultClickbutton()" placeholder="Enter second Number...">
+        </div>
+
+
+        <div class="row">
+            <div class="res" >Result:</div>
+            <div id="showDataDisplay"></div>
+        </div>
+
+    </div>
+
+    <script>
+
+        let firstNumberInput = document.getElementById("fnum");
+        let secondNumberInput = document.getElementById("snum");
+        let operatorSelect = document.getElementById("operationId");
+
+        let showDataDisplay = document.getElementById("showDataDisplay");
+
+        console.log(firstNumberInput,secondNumberInput,operatorSelect)
+
+        function resultClickbutton(){
+            let firstNumber = parseInt(firstNumberInput.value);
+            let secondNumber = parseInt(secondNumberInput.value);
+            let operation = operatorSelect.value;
+
+            console.log(firstNumber,secondNumber,operation);
+
+
+            let result ;
+            if(operation == "+"){
+                if(firstNumber!= null && secondNumber != null){
+                    result = firstNumber + secondNumber;
+                }
+            }else if(operation == "-"){
+                if(firstNumber!= null && secondNumber != null){
+                    result = firstNumber - secondNumber;
+                }
+            }else if(operation == "*"){
+                if(firstNumber!= null && secondNumber != null){
+                    result = firstNumber * secondNumber;
+                }
+            }else if(operation == "/"){
+                if(firstNumber!= null && secondNumber != null){
+                    result = firstNumber / secondNumber;
+                }
+            }
+
+            showDataDisplay.textContent = result;
+
+        }
+    </script>
+</body>
+
+</html>
