@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <style>
+        body {
+            background-color: rgb(52, 52, 52);
+            display: flex;
+            justify-content: center;
+            font-family: system-ui;
+        }
+
+        .wrapper {
+            background-color: grey;
+            width: 410px;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 2px solid white;
+            border-radius: 10px;
+        }
+
+        .nav {
+            background-color: rgb(218, 196, 238);
+            border-radius: 20px;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-top: 10px;
+
+        }
+
+        .para {
+            background-color: beige;
+            border-radius: 20px;
+            margin-top: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .lable {
+            background-color: black;
+            color: white;
+            border-radius: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        input {
+            width: 150px;
+            height: 25px;
+        }
+
+        .inpf {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        button {
+            width: 82px;
+            height: 39px;
+            background-color: aqua;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: aliceblue;
+            color: blue;
+            cursor: pointer;
+        }
+
+        .footer {
+            margin-top: 10px;
+
+        }
+
+        #result {
+            background-color: rgb(210, 245, 158);
+            margin-top: 10px;
+            width: 200px;
+            height: 43px;
+            display: flex;
+            justify-content: center;
+            color: rgb(33, 11, 11);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="nav">
+            <h1>Number Guessing Game...</h1>
+        </div>
+        <div class="para">
+            <p>Try and guess a random nuumber between 1 to 100. <br> you have 10 attempts to guess the right number.</b>
+            </p>
+        </div>
+        <div class="container">
+            <h1 class="lable">Guess a Number...</h1>
+            <div class="inpf">
+                <input type="text" id="numInput">
+                <button type="submit" id="sbt">Submit Guess</button>
+            </div>
+
+
+        </div>
+        <div class="footer">
+            <div>Prvious Guesses: <span id="yourGesses"></span> </div>
+            <div>Remaining attempts: <span id="overIn">10</span></div>
+
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+
+    <!-- Javascript part -->
+    <script>
+        const submit = document.getElementById('sbt');
+        const randomNumber = parseInt(Math.random() * 100 + 1);
+        console.log(randomNumber);
+        var guessedNumber = [];
+        var remainingAttempts = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let overIn = document.getElementById("overIn");
+        let yourGuesses = document.getElementById("yourGesses");
+        let result = document.getElementById("result");
+
+
+
+        submit.addEventListener("click", function (e) {
+            const inputValue = parseInt(document.getElementById("numInput").value);
+
+            
+            
+            overIn.innerText = remainingAttempts.length;
+            yourGuesses.innerText = guessedNumber;
+            if (remainingAttempts.length === 0) {
+                result.innerText = "You dont have any remaining attempts!!!"
+                alert("You dont have any remaining attempts!!!")
+            }
+            else {
+                if (inputValue === randomNumber) {
+                    guessedNumber.push(inputValue);
+                    remainingAttempts.pop();
+                    result.innerText = "Wow you are a champ!!!"
+                } else {
+                    guessedNumber.push(inputValue);
+                    remainingAttempts.pop();
+                    result.innerText = "opps... try again"
+                }
+
+
+            }});
+
+
+
+    </script>
+</body>
+
+</html>

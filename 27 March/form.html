@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Design</title>
+    <style>
+        * {
+            font-family: "Roboto", sans-serif;
+        }
+
+        body {
+            color: white;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+        }
+
+        .details {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+
+        }
+
+        .flex {
+            margin-top: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        textarea {
+            resize: none;
+            height: 40px;
+            background-color: rgb(163, 212, 255);
+            border: 2px solid white;
+        }
+
+        input {
+            background-color: rgb(163, 212, 255);
+            border: 2px solid white;
+            height: 30px;
+            padding-left: 50px;
+
+        }
+
+        select {
+            background-color: rgb(163, 212, 255);
+            border: 2px solid white;
+            height: 30px;
+            padding-left: 50px;
+        }
+
+        input:hover {
+            background-color: black;
+            color: white;
+        }
+
+        select:hover {
+            background-color: black;
+            color: white;
+
+        }
+
+        textarea:hover {
+            background-color: black;
+            color: white;
+        }
+
+        button {
+            width: 395px;
+            height: 46px;
+            background-color: green;
+            color: black;
+        }
+        button:hover{
+            background-color: white;
+            color: aqua;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="para">Contect Us Today!</div>
+    <div class="wrapper">
+
+        <Div class="details">
+            <div class="flex"><label for="lName">Last Name</label>
+                <input type="text" id="lName">
+            </div>
+
+            <div class="flex"><label for="mail">E-mail</label>
+                <input type="email" id="mail">
+            </div>
+
+            <div class="flex"><label for="phone">Phone #</label>
+                <input type="number" id="phone">
+            </div>
+
+            <div class="flex"><label for="add">Address</label>
+                <input type="text" id="add">
+            </div>
+
+            <div class="flex"> <label for="city">City</label>
+                <input type="text" id="city">
+            </div>
+
+            <div class="flex">
+                <label for="state">State</label>
+                <select name="state" id="state">
+                    <option value="SelectState">Select State</option>
+                    <option value="Andra Pradesh">Andra Pradesh</option>
+                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                    <option value="Assam">Assam</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Chhattisgarh">Chhattisgarh</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                    <option value="Jharkhand">Jharkhand</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Madya Pradesh">Madya Pradesh</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Manipur">Manipur</option>
+                    <option value="Meghalaya">Meghalaya</option>
+                    <option value="Mizoram">Mizoram</option>
+                    <option value="Nagaland">Nagaland</option>
+                    <option value="Orissa">Orissa</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Sikkim">Sikkim</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Telangana">Telangana</option>
+                    <option value="Tripura">Tripura</option>
+                    <option value="Uttaranchal">Uttaranchal</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="West Bengal">West Bengal</option>
+                </select>
+            </div>
+
+            <div class="flex"><label for="zip">Zip Code</label>
+                <input type="number" id="zip">
+            </div>
+
+            <div class="flex"><label for="web">Website or domain name</label>
+                <input type="text" id="web">
+            </div>
+
+            <div class="flex"><span>Do you have hosting?</span>
+                <input type="radio" id="yes" value="YES">
+                <label for="yes">YES</label><br>
+                <input type="radio" id="no" value="NO">
+                <label for="no">NO</label><br>
+            </div>
+
+            <div class="flex"><label for="ProjectInfo">Project Description</label>
+                <textarea id="ProjectInfo" cols="30" rows="10"></textarea>
+            </div>
+
+            <div class="sbtBtn">
+                <button type="submit">SUBMIT</button>
+            </div>
+
+        </Div>
+    </div>
+</body>
+
+</html>
