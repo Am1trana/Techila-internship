@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Mass Index</title>
+    <style>
+        * {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #212121;
+        }
+
+        button {
+            background-color: antiquewhite;
+            margin-top: 10px;
+
+        }
+
+        h1 {
+            color: #fff;
+        }
+
+        label {
+            color: #fff;
+        }
+        #result{
+            border : 2px solid red;
+            background-color: white;
+            color: black;
+            height: 100px;
+            width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>BODY MASS INDEX</h1>
+    <div class="form">
+        <form>
+            <label for="height">Enter Height:</label>
+            <input type="number" id="height" placeholder="Enter Hight in Cm.">
+            <label for="weight">Enter Weight:</label>
+            <input type="number" id="weight" placeholder="Enter weight in kg.">
+
+            <div class="demo"><button id="btn" type="submit">Calculate</button></div>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script>
+
+        const btn = document.getElementById("btn");
+        btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            console.log(e.target);
+            const height = (document.getElementById("height").value);
+            const weight = (document.getElementById("weight").value);
+            const result = document.getElementById("result");
+            console.log(result)
+            
+            const bmi = (weight / ((height*height)/10000)).toFixed(2);
+            // result.innerText = bmi;
+            result.textContent = bmi;
+            console.log(bmi);
+            
+
+        });
+    </script>
+</body>
+
+</html>
