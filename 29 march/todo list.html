@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to do list</title>
+    <style>
+        * {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: black;
+            color: white;
+        }
+
+        h1 {
+            display: flex;
+            margin-top: 50px;
+            justify-content: center;
+        }
+
+        .body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            font-weight: bold
+        }
+
+        #userInput {
+            background-color: antiquewhite;
+            width: 250px;
+            height: 30px;
+            border-radius: 5px;
+            border: 3px solid teal;
+            color: black;
+        }
+
+        .addTask {
+            background-color: aqua;
+            color: black;
+            width: 250px;
+            height: 30px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            color: white;
+            background-color: rgb(49, 11, 11);
+
+
+        }
+
+        #userInput:hover {
+            background-color: white;
+        }
+
+        .body {
+            width: 800px;
+            border: 2px solid white;
+            border-radius: 5px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: auto;
+            height: auto;
+            gap: 5px;
+        }
+
+        .todo {
+            display: flex;
+            justify-content: center;
+            width: 800px;
+            border: 2px solid white;
+            border-radius: 5px;
+
+        }
+
+        .taskbtn {
+            width: 70px;
+            height: 30px;
+            background-color: rgb(218, 242, 255);
+            color: black;
+            border-radius: 5px;
+        }
+
+        .taskbtn:hover {
+            background-color: wheat;
+            color: red;
+        }
+
+        .task {
+            border: 2px solid rgb(194, 91, 91);
+            width: 250px;
+            height: 30px;
+            background-color: antiquewhite;
+            color: black;
+        }
+
+        .taskbox {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+            width: 400px;
+            height: 40px;
+
+        }
+
+        .taskList {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="nav">
+            <h1>TO DO LIST</h1>
+        </div>
+        <div class="container">
+            <div class="body">
+                <p>Add some task for your to-do...</p>
+                <input type="text" id="userInput" placeholder="Add a new task...">
+                <button type="submit" class="addTask" id="addtsk">Add task</button>
+            </div>
+            <div class="todo">
+                <ul id="taskList">
+
+                    <!-- <li class="taskbox">
+                        <button class="taskbtn">Delete</button>
+                        <button class="taskbtn">Save</button>
+                        <div class="task"></div>
+                        <input type="text" class="task">
+                    </li>
+                    -->
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+<!-- javascript part -->
+<script>
+    const userInput = document.getElementById("userInput");
+    const addTaskBtn = document.getElementById("addtsk");
+    const taskList = document.getElementById("taskList");
+
+
+    addTaskBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (userInput.value === '') {
+            alert("Task section can not be null !!!");
+
+        }
+        else {
+            var deleteBtn = document.createElement('button');
+            var editBtn = document.createElement('button');
+            var theTask = document.createElement('div');
+            var taskBox = document.createElement('li');
+
+
+            deleteBtn.className = "taskbtn";
+            editBtn.className = "taskbtn";
+            theTask.className = "task";
+            taskBox.className = "taskbox";
+
+
+
+            taskBox.appendChild(deleteBtn);
+            taskBox.appendChild(editBtn);
+            taskBox.appendChild(theTask);
+            taskList.appendChild(taskBox);
+
+            deleteBtn.textContent = "Delete";
+            editBtn.textContent = "Edit Task";
+            theTask.textContent = userInput.value;
+
+            userInput.value = '';
+        }
+        deleteBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            deleteBtn.parentElement.remove();
+            var oldTask = theTask.innerText
+
+        })
+        editBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const oldTask = theTask.innerText
+            editBtn.nextSibling.remove();
+            deleteBtn.nextSibling.remove();
+
+            var save = document.createElement('button');
+            var newInput = document.createElement('input');
+            save.type = "submit"
+            save.className = "taskbtn";
+            newInput.className = "task";
+            save.innerText = "Save"
+            taskBox.appendChild(save);
+            taskBox.appendChild(newInput);
+            var newInputValue = newInput.value;
+
+            save.addEventListener('click', function (e) {
+                var newInputValue = newInput.value;
+                console.log(e.target);
+                let newEditBtn = document.createElement('button');
+                let editedTask = document.createElement('div');
+                newEditBtn.className = "taskbtn";
+                editedTask.className = "task";
+                newEditBtn.innerText = "Edit Task";
+                editedTask.innerText = newInputValue;
+                save.nextSibling.remove();
+                deleteBtn.nextSibling.remove();
+                taskBox.appendChild(newEditBtn);
+                taskBox.appendChild(editedTask);
+                
+
+
+            })
+        })
+
+    });
+
+
+
+
+</script>
+
+</html>
