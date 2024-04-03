@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table calculations</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        table,
+        td,
+        th {
+            border: 2px solid white;
+            height: 40px;
+            border-collapse: collapse;
+        }
+
+        input {
+            width: auto;
+            height: 40px;
+            text-decoration: none;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .box {
+            display: flex;
+        }
+
+        .res {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        input{
+            background-color: aqua;
+        }
+        .input:hover{
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>A</th>
+                    <th>B</th>
+                    <th>C</th>
+                    <th>D</th>
+                    <th>E</th>
+                </tr>
+            </thead>
+            <tbody id="tBody">
+                <tr class="value">
+                    <td><input class="input" type="number" onchange="tableCalc()"></td>
+                    <td><input class="input" type="number" onchange="tableCalc()"></td>
+                    <td><input class="input" type="number" onchange="tableCalc()"></td>
+                    <td><input class="input" type="number" onchange="tableCalc()"></td>
+                    <td><input class="input" type="number" onchange="tableCalc()"></td>
+                </tr>
+                <tr class="value">
+                    <td><input class="input" type="number" onchange="tableCalc()"></td>
+                    <td><input class="input" type="number" onchange="tableCalc()"></td>
+                    <td><input class="input" type="number" onchange="tableCalc()"></td>
+                    <td><input class="input" type="number" onchange="tableCalc()"></td>
+                    <td><input class="input" type="number" onchange="tableCalc()"></td>
+                </tr>
+            </tbody>
+            
+           
+
+        </table>
+
+    </div>
+    <div class="result">
+        <div class="box">
+            <div>Result:</div>
+            <input id="rslt" type="number" disabled>
+        </div>
+    </div>
+
+
+    
+    <!-- javascript part -->
+    
+    <script>
+        function tableCalc(){
+            var tblBody = document.getElementById('tBody');
+            var tblRow = document.getElementsByClassName('value');
+            var output = 0;
+            for (let i = 0; i < tblRow.length; i++) {
+                let cell = tblRow[i].getElementsByClassName('input');
+                let valueA = parseInt(cell[0].value) || 0;
+                let valueB = parseInt(cell[1].value) || 0;
+                let valueC = parseInt(cell[2].value) || 0;
+                let valueD = parseInt(cell[3].value) || 0;
+                let valueE = parseInt(cell[4].value) || 0;
+                
+               output += (valueA*valueC)+valueD+(valueB*valueE);  
+               console.log(output);             
+            }
+            document.getElementById('rslt').value = output;
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>
